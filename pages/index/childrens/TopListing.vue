@@ -52,14 +52,6 @@ const topListings = ref([
 
 ])
 const getTopListings = computed(()=>{
-    console.log(y.value)
-    if(y.value < 1600) {
-        return topListings.value.slice(0,3)
-    }
-
-     if(y.value < 1800) {
-        return topListings.value.slice(0,4)
-    }
     return topListings.value
 })
 const { x, y } = useResize()
