@@ -6,7 +6,7 @@
         </div>
 
         <div class="menu-items">
-            <div col v-for="(item, index) in menuItems" class="menu-item" :key="index">
+            <div @click="navigate(item.url as string)" col v-for="(item, index) in menuItems" class="menu-item" :key="index">
                 <component :key="index" :is="item.icon" />
                 <span class="menu-item-title">{{ item.title }}</span>
             </div>
@@ -14,44 +14,37 @@
     </div>
 </template>
 
-<script  lang="ts">
+<script  setup lang="ts">
 import { ref, h } from "vue"
 import IconHome from "@/components/IconHome.vue"
 import IconWallet from "@/components/IconWallet.vue"
 import IconMarket from "@/components/IconMarket.vue"
 import IconSupport from "@/components/IconSupport.vue"
-export default defineComponent({
-    components: {
-        IconHome,
-        IconMarket,
-        IconWallet,
-        IconSupport
-    },
-    setup() {
-        const menuItems = ref([
-            {
-                title: "Home",
-                icon: "icon-home"
-            },
-            {
-                title: "Wallet",
-                icon: "icon-market"
-            },
-            {
-                title: "Market",
-                icon: "icon-wallet"
-            },
-            {
-                title: "Support",
-                icon: "icon-support"
-            }
-        ])
-        return {
-            menuItems
-        }
-    }
-})
 
+const router = useRouter()
+const menuItems = ref([
+    {
+        title: "Home",
+        icon: "icon-home",
+        url: "/"
+    },
+    {
+        title: "Wallet",
+        icon: "icon-market"
+    },
+    {
+        title: "Market",
+        icon: "icon-wallet",
+        url: "/market-place"
+    },
+    {
+        title: "Support",
+        icon: "icon-support"
+    }
+])
+const navigate = (url: string) => {
+    router.push(url)
+}
 </script>
 
 <style scoped lang="scss">

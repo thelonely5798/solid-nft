@@ -1,22 +1,24 @@
 <template>
-    <div class="card" >
-        <img class="card-image" :src="url" />
-        <div class="flex justify-between w-full pt-3 pb-3">
-            <button class="detail-button">
-                DETAILS
-            </button>
-            <button class="bid-button">
-                BID
-            </button>
-        </div>
-        <div class="flex w-full">
-            <div class="flex flex-col">
-                <span class="follower-text">Followers</span>
-                <span>10.5k</span>
+    <div class="card">
+        <div class="wrapper">
+            <img class="card-image" :src="url" />
+            <div class="flex justify-between w-full pt-3 pb-3">
+                <button class="detail-button">
+                    DETAILS
+                </button>
+                <button class="bid-button">
+                    BID
+                </button>
             </div>
-            <div class="flex flex-col" style="margin-left:5px;">
-                <span class="offer-text">Offers</span>
-                <span>94</span>
+            <div class="flex w-full">
+                <div class="flex flex-col">
+                    <span class="follower-text">Followers</span>
+                    <span>10.5k</span>
+                </div>
+                <div class="flex flex-col" style="margin-left:5px;">
+                    <span class="offer-text">Offers</span>
+                    <span>94</span>
+                </div>
             </div>
         </div>
     </div>
@@ -36,40 +38,60 @@ defineProps<IProps>()
 </script>
 
 <style scoped lang="scss">
-.card::before {
-    content: '';
-    position: absolute;
-    background: linear-gradient(90deg, rgba(44,84,54,1) 32%, rgba(73,148,66,1) 56%, rgba(33,204,119,1) 88%);
-    width: 100px;
-    height: 2px;
-    bottom: 0;
-}
-
-.card::after {
-    content: '';
-    position: absolute;
-    background: linear-gradient(90deg, rgba(44,84,54,1) 32%, rgba(73,148,66,1) 56%, rgba(33,204,119,1) 88%);
-    width: 100px;
-    height: 2px;
-    top: 0;
+.wrapper {
+    position: relative;
+    z-index: 999;
+    padding: 10px;
 }
 
 .card {
-    height: 450px;
+    height: 500px;
     width: 100%;
-    border-radius: 16px;
-    display: flex;
+    background: #1A1F25;
     position: relative;
+    text-align: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    background: linear-gradient(180deg, #191B1F 0%, rgba(25, 27, 31, 0.64) 100%);
-    padding: 10px;
-
-    & .card-image {
+    overflow: hidden;
+    border-radius: 16px;
+}
+.wrapper{
+    z-index: 999;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    & .card-image{
         width: 100%;
-        height: 300px;
-        filter: drop-shadow(0px 16px 16px rgba(0, 0, 0, 0.08));
-        border-radius: 8px;
+        border-radius: 16px;
+        height: 350px;
+    }
+}
+.card:hover:after {
+    content: '';
+    inset: 4px;
+    position: absolute;
+    inset: 4px;
+    background: #1A1F25;
+    border-radius: 16px;
+}
+
+.card:hover:before {
+    content: '';
+    position: absolute;
+    height: 150%;
+    width: calc(100% / 2);
+    background: linear-gradient(to right, rgb(182, 244, 146), rgb(51, 139, 147));
+    animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
     }
 }
 
