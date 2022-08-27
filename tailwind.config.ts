@@ -18,12 +18,5 @@ module.exports = {
   variants: {},
   plugins: [
     require('flowbite/plugin')
-  ],
-  purge: {
-    content: [
-      "./node_modules/flowbite/**/*.js",
-      './components/**/*.{js,ts,jsx,tsx}',
-       './pages/**/*.{js,ts,jsx,tsx}'
-    ]
-  }
+  ]
 }
