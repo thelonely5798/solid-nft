@@ -20,7 +20,7 @@ module.exports = {
     require('flowbite/plugin')
   ],
   content: [
-    "./pages/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    './public/**/*.html',
+    './**/*.{js,jsx,ts,tsx,vue}',
   ],
 }
