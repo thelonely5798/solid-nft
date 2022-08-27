@@ -6,9 +6,12 @@ export default defineNuxtConfig({
     build: {
         transpile: ['mdi-vue']
     },
-    modules: ['@nuxtjs/tailwindcss',  '@pinia/nuxt',],
+    modules: [
+        '@pinia/nuxt',
+        '@nuxtjs/tailwindcss'
+        , ],
     buildModules: [
         // pinia plugin
         '@pinia/nuxt',
-      ],
+    ],
 })

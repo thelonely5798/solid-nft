@@ -1,7 +1,5 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 
-const delay = (t: number) => new Promise((r) => setTimeout(r, t))
-
 
 export interface INotification {
   message: string
