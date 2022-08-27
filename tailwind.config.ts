@@ -1,4 +1,5 @@
 module.exports = {
+  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   theme: {
     screens: {
       sm: '480px',
@@ -16,5 +17,10 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('flowbite/plugin')
+  ],
+  content: [
+    "./node_modules/flowbite/**/*.js"
+  ]
 }

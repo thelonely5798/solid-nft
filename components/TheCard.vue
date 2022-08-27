@@ -38,11 +38,6 @@ defineProps<IProps>()
 </script>
 
 <style scoped lang="scss">
-.wrapper {
-    position: relative;
-    z-index: 999;
-    padding: 10px;
-}
 
 .card {
     height: 500px;
@@ -57,10 +52,10 @@ defineProps<IProps>()
     border-radius: 16px;
 }
 .wrapper{
-    z-index: 999;
+    z-index: 1;
     height: 100%;
     width: 100%;
-    z-index: 999;
+    padding: 10px;
     & .card-image{
         width: 100%;
         border-radius: 16px;

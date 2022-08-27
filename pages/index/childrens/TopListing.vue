@@ -13,7 +13,7 @@
         </div>
     </div>
     <div
-        class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-3 4xl:grid-cols-4 5xl:grid-cols-4 6xl:grid-cols-5 gap-4">
+        class="grid grid-cols-2 lg:grid-cols-3  6xl:grid-cols-5 gap-4">
         <div v-for="(card, index) in getTopListings">
             <the-card :url="card.url" title="" />
         </div>

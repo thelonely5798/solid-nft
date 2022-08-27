@@ -1,12 +1,6 @@
 <template>
   <transition name="home">
-    <div class="content">
-      <div class="flex justify-end pr-5 pt-5">
-        <button class="text-slate-500 hover:opacity-50 py-2 px-4 border border-gray-400 rounded shadow"
-          @click="openWalletModal">
-          Connect your wallet
-        </button>
-      </div>
+    <div>
       <div class="flex flex-row">
         <div class="w-full">
           <!-- Top listing -->
@@ -18,7 +12,6 @@
           <DirectorListing />
         </div>
       </div>
-      <Modal ref="walletModal" />
     </div>
   </transition>
 </template>
