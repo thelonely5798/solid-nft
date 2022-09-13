@@ -1,41 +1,35 @@
 <template>
     <div class="flex">
-        <the-side-menu />
+        <TheSideMenu />
 
         <div class="flex w-full flex-col content">
-            <div class="w-full">
-                <div class="flex justify-end pr-5 pt-5">
-                <button class="text-slate-500 hover:opacity-50 py-2 px-4 border border-gray-400 rounded shadow"
-                    @click="openWalletModal">
-                    Connect your wallet
-                </button>
-            </div>
-            </div>
-            <slot />
+            <TheHeader />
+            <slot/>
         </div>
     </div>
+ 
     <teleport to="body">
-        <WalletConnectModal ref="walletModal" />
-    </teleport>
-    <teleport to="body">
-        <the-toast/>
+        <the-toast v-for="(notification, index) in getNotifications" :messageType="notification.type" :index="index"
+            :message="notification.message" />
     </teleport>
 </template>
 
 
 <script setup lang="ts">
-import { ref } from "vue"
-import TopListing from "./childrens/TopListing.vue"
-import RecentListing from "./childrens/RecentListing.vue"
-import DirectorListing from "./childrens/DirectorListing.vue";
+import TheSideMenu from './components/TheSideMenu.vue';
+import TheHeader from './components/TheHeader';
 
+const { getNotifications } = useNotifyStore()
 </script>
+
 <script lang="ts">
+import { useNotifyStore } from '~~/store/notifier';
 export default defineComponent({
     methods: {
         openWalletModal() {
             this.$refs.walletModal.setOpen()
         }
-    }
+    },
 })
 </script>
+

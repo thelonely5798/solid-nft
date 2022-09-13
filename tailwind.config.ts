@@ -18,9 +18,5 @@ module.exports = {
   variants: {},
   plugins: [
     require('flowbite/plugin')
-  ],
-  content: [
-    './public/**/*.html',
-    './**/*.{js,jsx,ts,tsx,vue}',
-  ],
+  ]
 }

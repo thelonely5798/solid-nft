@@ -1,23 +1,31 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
 
+import { watch } from 'vue';
+import dayjs from "dayjs"
 
 export interface INotification {
   message: string
-  type: "success" | "fail" | "warning"
-
+  type: "success" | "error" | "warning",
+  duration?: number,
+  timer?: any
 }
-export const useCounter = defineStore('notifier', () => {
+export const useNotifyStore = defineStore('notifier', () => {
   const notifications = ref<INotification[]>([])
+
   const show = (notification: INotification) => {
-    notifications.value.push(notification)
+    notifications.value.push({...notification, timer: dayjs()})
   }
-  const deleteFirst = () => {
+
+  const deleteAt = () => {
     notifications.value.shift()
   }
-  const getNotifications = computed(()=> notifications.value)
-  return { show, deleteFirst, getNotifications }
+ 
+  const getNotifications = computed(() => {
+    return notifications.value
+  })
+  return { show, deleteAt, getNotifications, notifications }
 })
 
 if (import.meta.hot) {
-  import.meta.hot.accept(acceptHMRUpdate(useCounter, import.meta.hot))
+  import.meta.hot.accept(acceptHMRUpdate(useNotifyStore, import.meta.hot))
 }
