@@ -38,6 +38,7 @@ onMounted(async () => {
       const { accounts } = data
       setAccounts(accounts)
     }
+    
   })
   const accounts = await connectMetaMask()
   setAccounts(accounts)

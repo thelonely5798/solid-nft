@@ -11,14 +11,15 @@
                 </button>
             </div>
             <div class="flex w-full">
-                <div class="flex flex-col">
-                    <span class="follower-text">Followers</span>
-                    <span>10.5k</span>
-                </div>
                 <div class="flex flex-col" style="margin-left:5px;">
                     <span class="offer-text">Offers</span>
-                    <span>94</span>
+                    <small>94</small>
                 </div>
+                <div class="flex flex-col mx-2">
+                    <span class=" text-center follower-text">Price</span>
+                    <small>10.5 ETH</small>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -40,7 +41,7 @@ defineProps<IProps>()
 <style scoped lang="scss">
 
 .card {
-    height: 500px;
+    height: 350px;
     width: 100%;
     background: #1A1F25;
     position: relative;
@@ -59,7 +60,7 @@ defineProps<IProps>()
     & .card-image{
         width: 100%;
         border-radius: 16px;
-        height: 350px;
+        height: 250px;
     }
 }
 .card:hover:after {
@@ -92,14 +93,14 @@ defineProps<IProps>()
 
 .detail-button {
     width: 45%;
-    height: 55px;
+    height: 30px;
     background: rgba(153, 162, 213, 0.08);
     backdrop-filter: blur(16px);
     border-radius: 10px;
     font-style: normal;
     font-weight: 700;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 12px;
+    line-height: 12px;
     display: flex;
     border: none;
     align-items: center;
@@ -121,8 +122,8 @@ defineProps<IProps>()
 
 .follower-text {
     font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 12px;
+    line-height: 12px;
     display: flex;
     align-items: flex-end;
     color: #758089;

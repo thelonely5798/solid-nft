@@ -69,7 +69,7 @@ const navigate = (url: string) => {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 110px;
+    height: 90px;
 
     & .menu-item-title {
         color: white !important;

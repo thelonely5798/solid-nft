@@ -54,7 +54,7 @@
 }
 
 .recent-item {
-    height: 90px;
+    height: 60px;
     background: #1A1F25;
     backdrop-filter: blur(64px);
     border-radius: 16px;
@@ -129,8 +129,8 @@
 }
 
 .eclipse {
-    width: 54px;
-    height: 54px;
+    width: 40px;
+    height: 40px !important;
     background: rgba(153, 162, 213, 0.04);
     backdrop-filter: blur(16px);
     border-radius: 50%;
