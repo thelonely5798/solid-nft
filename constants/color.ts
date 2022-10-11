@@ -1,0 +1,1 @@
+export const PRIMARY_GREEN_COLOR = "#34D178"

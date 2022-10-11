@@ -9,9 +9,9 @@ export function useWeb3() {
     const connectMetaMask = async () => {
         if (typeof window?.ethereum !== 'undefined') {
             const accounts = await window?.ethereum.request({ method: 'eth_requestAccounts' });
-            return accounts
+            return Promise.resolve(accounts)
         } else {
-            console.log("not install")
+            return Promise.reject("Please install MetaMask")
         }
     }
     const getAccounts = async () => {
@@ -26,7 +26,7 @@ export function useWeb3() {
             })
 
         } else {
-            console.log('Please install MetaMask!');
+            callback("error", "Please install MetaMask")
         }
 
     }

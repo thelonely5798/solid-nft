@@ -1,7 +1,10 @@
 <template>
     <div class="card">
-        <div class="wrapper">
-            <img class="card-image" :src="url" />
+        <div v-show="loading" class="h-full w-full absolute skeleton z-50">
+
+        </div>
+        <div  class="wrapper">
+            <img class="card-image" :src="url" ref="refImg" />
             <div class="flex justify-between w-full pt-3 pb-3">
                 <button class="detail-button">
                     DETAILS
@@ -34,8 +37,18 @@ interface IProps {
     url: string
     title: string
 }
-
 defineProps<IProps>()
+
+const refImg = ref(null)
+const loading = ref(true)
+
+
+const onLoadFinished = () => {
+}
+onMounted(()=> {
+    loading.value = false
+
+})
 </script>
 
 <style scoped lang="scss">
@@ -62,6 +75,33 @@ defineProps<IProps>()
         border-radius: 16px;
         height: 250px;
     }
+}
+.skeleton {
+    background-color: #DDDBDD;
+    
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(#fff, 0) 0,
+      rgba(#fff, 0.2) 20%,
+      rgba(#fff, 0.5) 60%,
+      rgba(#fff, 0)
+    );
+    animation: shimmer 2s infinite;
+    content: '';
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
 }
 .card:hover:after {
     content: '';

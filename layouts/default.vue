@@ -1,5 +1,5 @@
 <template>
-    <div class="flex">
+    <div class="flex h-screen">
         <TheSideMenu />
 
         <div class="flex w-full flex-col content">

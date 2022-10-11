@@ -1,12 +1,11 @@
 <template>
     <transition name="foobar">
-        <div class="content">
-        </div>
+          <Setup/>
     </transition>
 </template>
 
-<script lang="ts">
-
+<script setup lang="ts">
+import Setup from "./childrens/Search.vue"
 </script>
 
 

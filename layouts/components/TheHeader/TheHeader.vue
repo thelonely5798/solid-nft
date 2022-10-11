@@ -6,13 +6,13 @@
                 @click="openWalletModal">
                 Connect your wallet
             </button>
-            <div class="block relative">
+            <div class="block relative" v-click-out-side="hideDetailModal">
                 <button @click="handleConnectWalletButton_click" v-if="isWalletConnected"
                     style="background-color: #249254 ;"
                     class="text-2xl text-slate-500 text-white hover:opacity-50 py-2 px-4  rounded shadow">
                     {{getAccounts[0].substr(0,5)}} ... {{getAccounts[0].substr(16,5)}}
                 </button>
-                <div v-if="clickedButton" class="absolute bg-slate-800 w-96 right-0 py-5">
+                <div v-if="detailModal" class="absolute bg-slate-800 w-96 right-0 py-5">
                     <button
                         class="flex justify-between text-white-500 h-18 hover:bg-slate-500 w-full text-left hover:opacity-50 py-2 px-4 rounded shadow">
                         <span>Logout</span>
@@ -32,9 +32,13 @@ const { accounts, getAccounts } = useWalletStore()
 
 const isWalletConnected = computed(() => getAccounts.length)
 
-const clickedButton = ref(false)
+const detailModal = ref(false)
 
-const handleConnectWalletButton_click = () => clickedButton.value = !clickedButton.value
+const handleConnectWalletButton_click = () => detailModal.value = !detailModal.value
+
+const hideDetailModal = () => {
+    detailModal.value = false
+}
 </script>
         
 <script lang="ts">

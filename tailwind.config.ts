@@ -13,10 +13,17 @@ module.exports = {
         '5xl': '1700px',
         '6xl': '1800px',
       },
+      colors: {
+        'primary-green': '#34D178',
+        'dark-blue': '#1A1F25',
+      },
     },
   },
   variants: {},
   plugins: [
     require('flowbite/plugin')
-  ]
+  ],
+  content: [
+    "./node_modules/flowbite/**/*.js"
+]
 }
