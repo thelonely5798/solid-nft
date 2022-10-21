@@ -7,7 +7,8 @@
                 <div
                     class="relative bg-white text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:max-w-lg sm:w-full ">
                     <div
-                        class="w-full flex column bg-zinc-700 p-5  hover:cursor-pointer hover:opacity-50 border-b border-zinc-800 ">
+                        class="w-full flex column bg-zinc-700 p-5  hover:cursor-pointer hover:opacity-50 border-b border-zinc-800 "
+                        @click="connectMetamask()">
                         <div class="flex">
                             <div>
                                 <IconMetaMask />
@@ -18,7 +19,7 @@
                         </div>
                     </div>
                     <div class="w-full flex column bg-zinc-700 p-5  hover:cursor-pointer hover:opacity-50 "
-                        @click="connectMetamask()">
+                       >
                         <div class="flex">
                             <div>
                                 <IconWalletConnect />
@@ -38,16 +39,13 @@
 import { ref } from "vue"
 import { useNotifyStore } from "~/store/notifier"
 import { useWalletStore } from "~/store/wallet"
-import { useWeb3 } from "~~/hooks/useWeb3"
 import { useToast } from "vue-toastification";
+import { EtherumNetwork, NetWorkAdpater } from "~~/providers/network";
+import { useNetWork } from "~~/store/network";
 
 export default defineComponent({
     setup() {
-        const { connectMetaMask } = useWeb3()
-
-        const { show } = useNotifyStore()
-        const { setAccounts } = useWalletStore()
-
+        const { setNetwork, getNetwork } = useNetWork()
         const isOpen = ref(false)
         const setOpen = () => {
             isOpen.value = true
@@ -62,10 +60,13 @@ export default defineComponent({
             }
         }
         const connectMetamask = async () => {
-            const accounts = await connectMetaMask()
-            setAccounts(accounts)
-            show({ message: "Connect success", type: "error" })
+            const netWorkAdapter = new NetWorkAdpater(new EtherumNetwork())
+            netWorkAdapter.connect().then((current)=>{
+                setNetwork(netWorkAdapter)    
+                setClose()
+            })
         }
+
         return { setOpen, setClose, isOpen, closeIfOutsideModal, connectMetamask }
     },
     watch: {
