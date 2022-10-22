@@ -14,7 +14,7 @@
                     <div class="bg-dark-blue lg:max-w-[384px] md:max-w-[720px] w-full shadow rounded mx-auto pb-10 px-6">
                         <div class="flex justify-start items-center py-7 relative">
                             <input
-                                class="text-sm leading-none text-left text-white px-4 py-3 w-full border rounded border-gray-300 outline-none"
+                                class="text-sm leading-none text-left text-black px-4 py-3 w-full border rounded border-gray-300 outline-none"
                                 type="text" placeholder="Enter address or text" />
                             <svg class="absolute right-3 z-10 cursor-pointer" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
