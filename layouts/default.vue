@@ -2,12 +2,12 @@
     <div class="flex h-screen">
         <TheSideMenu />
 
-        <div class="flex w-full flex-col content">
+        <div class="flex w-full h-full flex-col content">
             <TheHeader />
-            <slot/>
+            <slot />
         </div>
     </div>
- 
+
     <teleport to="body">
         <the-toast v-for="(notification, index) in getNotifications" :messageType="notification.type" :index="index"
             :message="notification.message" />
@@ -33,3 +33,13 @@ export default defineComponent({
 })
 </script>
 
+<style lang="scss" scoped>
+.content {
+    background: linear-gradient(180deg, #131416 0%, #040506 100%);
+    height: 100% ;
+    min-height: 100vh;
+    width: 100%;
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
+</style>

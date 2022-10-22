@@ -33,7 +33,14 @@
     color: #34D178 !important;
   }
 }
-
+.content {
+    background: linear-gradient(180deg, #131416 0%, #040506 100%);
+    height: 100% ;
+    min-height: 100vh;
+    width: 100%;
+    padding-left: 40px;
+    padding-bottom: 40px;
+}
 
 </style>
 <script setup lang="ts">
