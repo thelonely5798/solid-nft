@@ -8,7 +8,7 @@
             </button>
             <div class="block relative" v-click-out-side="hideDetailModal" v-else>
                 <button @click="handleConnectWalletButton_click" style="background-color: #249254 ;"
-                    class="text-2xl text-slate-500 text-white hover:opacity-50 py-2 px-4  rounded shadow">
+                    class="text-2xl text-white hover:opacity-50 py-2 px-4  rounded shadow">
                     {{address}}
                 </button>
                 <div v-if="detailModal" class="absolute bg-slate-800 w-96 right-0 py-5">
