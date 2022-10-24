@@ -61,10 +61,9 @@ export default defineComponent({
         }
         const connectMetamask = async () => {
             const netWorkAdapter = new NetWorkAdpater(new EtherumNetwork())
-            netWorkAdapter.connect().then((current)=>{
-                setNetwork(netWorkAdapter)    
-                setClose()
-            })
+            await netWorkAdapter.connect()
+            setNetwork(netWorkAdapter)    
+            setClose()
         }
 
         return { setOpen, setClose, isOpen, closeIfOutsideModal, connectMetamask }

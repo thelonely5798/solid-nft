@@ -1,15 +1,19 @@
 <template>
-    <transition name="foobar">
-          <Setup/>
+    <transition name="market-place">
+          <div class="w-full">
+              <SearchItem/>
+          </div>
     </transition>
 </template>
 
 <script setup lang="ts">
-import Setup from "./childrens/Search.vue"
+import Search from "./childrens/Search.vue"
+import SearchItem from "./childrens/SearchItem.vue"
 </script>
 
 
 <style lang="scss" scoped>
+
 .content {
     height: 100vh;
 }
@@ -26,5 +30,8 @@ import Setup from "./childrens/Search.vue"
 .foobar-enter,
 .foobar-leave-to {
   opacity: 0;
+}
+.container {
+
 }
 </style>
