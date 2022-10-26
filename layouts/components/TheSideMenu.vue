@@ -34,7 +34,7 @@ const menuItems = ref([
         url: "/my-nft"
     },
     {
-        title: "Market",
+        title: "Marketplace",
         icon: "icon-wallet",
         url: "/market-place"
     },
