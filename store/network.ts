@@ -18,6 +18,7 @@ export const useNetWork = defineStore('network', () => {
     const getNetwork = computed(() => network?.value)
     const getAddress = computed(() => account?.value?.address ?? "")
     const getIsConnected = computed(() => isConnected.value)
+
     return {
         setNetwork,
         getNetwork,

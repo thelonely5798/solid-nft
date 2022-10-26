@@ -1,9 +1,7 @@
 <template>
-    <transition name="market-place">
           <div class="w-full">
               <SearchItem/>
           </div>
-    </transition>
 </template>
 
 <script setup lang="ts">

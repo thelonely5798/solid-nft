@@ -1,7 +1,7 @@
 <template>
     <div class="top-listing">
         <div class="d-flex">
-            <p><span class="text-first">Top</span><span class="text-second"> collections</span></p>
+            <p><span class="text-first">Top</span><span class="text-second"> Directors</span></p>
         </div>
     </div>
     <div class="w-full hover:opacity-50 hover:cursor-pointer" v-for="i in 5" :key="i" :class="{'mt-2': i !== 1}" >

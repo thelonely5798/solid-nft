@@ -1,19 +1,17 @@
 <template>
-  <transition name="home">
-    <div>
-      <div class="flex flex-row">
-        <div class="w-full">
-          <!-- Top listing -->
-          <TopListing />
-          <!-- Recent listings -->
-          <RecentListing />
-        </div>
-        <div class="director-listing-area">
-          <DirectorListing />
-        </div>
+  <div>
+    <div class="flex flex-row">
+      <div class="w-full">
+        <!-- Top listing -->
+        <TopListing />
+        <!-- Recent listings -->
+        <RecentListing />
+      </div>
+      <div class="director-listing-area">
+        <DirectorListing />
       </div>
     </div>
-  </transition>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref } from "vue"

@@ -5,7 +5,7 @@ export interface IAccount  {
     network: "Etherum" | "Solana"
 }
 export interface INetWork {
-    connect(): Promise<any>
+    connect(callback: () => void): Promise<any>
     logOut() : void
     getCurrentAccount(): IAccount
     setCurrentAccount(account: IAccount): void
@@ -13,11 +13,12 @@ export interface INetWork {
 
 export class EtherumNetwork {
     account: IAccount 
-    async connect(): Promise<any> {
+    async connect(callback): Promise<any> {
          if (typeof window?.ethereum !== 'undefined') {
             const accounts = await window?.ethereum?.request({ method: 'eth_requestAccounts' });
             this.account = {address:  accounts[0], network: "Etherum"}
             localStorage.setItem("account", JSON.stringify(this.account))
+            callback && callback(this.account)
             return Promise.resolve(0)
         } else {
             return Promise.reject("Please install MetaMask")

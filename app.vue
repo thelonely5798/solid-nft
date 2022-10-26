@@ -60,9 +60,12 @@ onMounted((() => {
     const account: IAccount = JSON.parse(localStorage.getItem("account"))
     if (account.network === "Etherum") {
       const etherumNetwork = new EtherumNetwork()
-      etherumNetwork.setCurrentAccount(account)
-      const netWorkAdapter = new NetWorkAdpater(etherumNetwork)
-      setNetwork(netWorkAdapter)
+      etherumNetwork.connect((_account) => {
+        etherumNetwork.setCurrentAccount(_account)
+        const netWorkAdapter = new NetWorkAdpater(etherumNetwork)
+        setNetwork(netWorkAdapter)
+      })
+
     }
   } catch (err) {
     localStorage.clear()

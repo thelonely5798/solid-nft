@@ -29,8 +29,9 @@ const menuItems = ref([
         url: "/"
     },
     {
-        title: "Wallet",
-        icon: "icon-market"
+        title: "My Nft",
+        icon: "icon-market",
+        url: "/my-nft"
     },
     {
         title: "Market",
