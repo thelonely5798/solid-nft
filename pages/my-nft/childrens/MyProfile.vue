@@ -35,13 +35,10 @@ const network = useNetWork()
 
 const avatarRef = ref()
 onMounted(() => {
-    watch(() => network.getAddress, (value) => {
-        // Make icon
-        const addr = value.slice(2, 10);
+         // Make icon
+         const addr = network.getAddress.slice(2, 10);
         const seed = parseInt(addr, 16);
         const icon = jazzicon(100, seed);
         avatarRef?.value?.appendChild(icon)
-
-    })
 })
 </script>
